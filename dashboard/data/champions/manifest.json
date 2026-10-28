@@ -1,0 +1,58 @@
+{
+  "source": "https://github.com/smogon/pokemon-showdown",
+  "revision": "1242c1e2d9763ba5b85d33f13aecb89bae19ae3d",
+  "source_commit_date": "2026-10-28T00:59:21+09:00",
+  "retrieved_at": "2026-10-28T09:38:15.344Z",
+  "mod": "champions",
+  "source_sha256": "9f86eb760bf20f03958cd05a7afb5fffcc7dcffd81b8e63677589ce0c29a0a26",
+  "outputs": {
+    "moves": {
+      "sha256": "0f615740f62af72bfbcab476a7fffebfdbbd02f5cb0bbc533c2eda3c436a5c7c",
+      "count": 848
+    },
+    "species": {
+      "sha256": "84e7bde0968511f237d81c5e93c7a0e6443180780fc34c8ef56567b680eed940",
+      "count": 392
+    },
+    "learnsets": {
+      "sha256": "5fe4e70390f9174e2ebad77965e1009c69d4c995f08ac80ed9be52d3ce532e7c",
+      "count": 23686
+    },
+    "formats": {
+      "sha256": "bfe12bccf0bd04efc1af7383e4064e0f581341416f8008d0f0578dd21cb6b7c1",
+      "count": 2
+    },
+    "checks": {
+      "sha256": "eb3a243c7f6e8388a79e3ff3a762b48498a72daaf01f0263e661c7c9441b81d0",
+      "count": null
+    },
+    "abilities": {
+      "sha256": "84a01855a87cf67f2a7143e24d208a8d9d08b24ca66e33be1b7e1777cc1c5a26",
+      "count": 225
+    },
+    "items": {
+      "sha256": "1bf76090daa509a29ecb2b3c05da058ed0705c1b912df244eb55b24f05aeb93f",
+      "count": 166
+    },
+    "types": {
+      "sha256": "14eef4bca7051ca84e065da1d23e030827c15162f61819dfff6e9744dddc3226",
+      "count": 18
+    }
+  },
+  "available_moves": 515,
+  "audit_counts": {
+    "items_without_nonstandard_flag": 166,
+    "abilities_assigned_to_source_available_forms": 225,
+    "types_in_resolved_dex": 19,
+    "conditions_in_resolved_dex": 35
+  },
+  "official_regulation_verified": false,
+  "limitations": [
+    "Availability is the resolved Showdown mod flag, not official tournament eligibility.",
+    "Move pools are individual options, not a complete team or moveset legality check.",
+    "Scripted effects are flagged; flat fields do not simulate conditional interactions.",
+    "Descriptions come from Showdown and may inherit general-generation wording.",
+    "Game patch correspondence has not been independently verified.",
+    "Resolved Dex inventories include inherited entries; type/condition counts do not establish Champions availability."
+  ]
+}

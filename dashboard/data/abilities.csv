@@ -1,0 +1,77 @@
+ability_id,name,description
+1,stench,Helps repel wild POKéMON.
+2,drizzle,Summons rain in battle.
+3,speed-boost,Gradually boosts SPEED.
+4,battle-armor,Blocks critical hits.
+5,sturdy,Negates 1-hit KO attacks.
+6,damp,Prevents self-destruction.
+7,limber,Prevents paralysis.
+8,sand-veil,Ups evasion in a sandstorm.
+9,static,Paralyzes on contact.
+10,volt-absorb,Turns electricity into HP.
+11,water-absorb,Changes water into HP.
+12,oblivious,Prevents attraction.
+13,cloud-nine,Negates weather effects.
+14,compound-eyes,Raises accuracy.
+15,insomnia,Prevents sleep.
+16,color-change,Changes type to foe’s move.
+17,immunity,Prevents poisoning.
+18,flash-fire,Powers up if hit by fire.
+19,shield-dust,Prevents added effects.
+20,own-tempo,Prevents confusion.
+21,suction-cups,Firmly anchors the body.
+22,intimidate,Lowers the foe’s ATTACK.
+23,shadow-tag,Prevents the foe’s escape.
+24,rough-skin,Hurts to touch.
+25,wonder-guard,“Super effective” hits.
+26,levitate,Not hit by GROUND attacks.
+27,effect-spore,Leaves spores on contact.
+28,synchronize,Passes on status problems.
+29,clear-body,Prevents ability reduction.
+30,natural-cure,Heals upon switching out.
+31,lightning-rod,Draws electrical moves.
+32,serene-grace,Promotes added effects.
+33,swift-swim,Raises SPEED in rain.
+34,chlorophyll,Raises SPEED in sunshine.
+35,illuminate,Encounter rate increases.
+36,trace,Copies special ability.
+37,huge-power,Raises ATTACK.
+38,poison-point,Poisons foe on contact.
+39,inner-focus,Prevents flinching.
+40,magma-armor,Prevents freezing.
+41,water-veil,Prevents burns.
+42,magnet-pull,Traps STEEL-type POKéMON.
+43,soundproof,Avoids sound-based moves.
+44,rain-dish,Slight HP recovery in rain.
+45,sand-stream,Summons a sandstorm.
+46,pressure,Raises foe’s PP usage.
+47,thick-fat,Heat-and-cold protection.
+48,early-bird,Awakens quickly from sleep.
+49,flame-body,Burns the foe on contact.
+50,run-away,Makes escaping easier.
+51,keen-eye,Prevents loss of accuracy.
+52,hyper-cutter,Prevents ATTACK reduction.
+53,pickup,May pick up items.
+54,truant,Moves only every two turns.
+55,hustle,Trades accuracy for power.
+56,cute-charm,Infatuates on contact.
+57,plus,Powers up with MINUS.
+58,minus,Powers up with PLUS.
+59,forecast,Changes with the weather.
+60,sticky-hold,Prevents item theft.
+61,shed-skin,Heals the body by shedding.
+62,guts,Ups ATTACK if suffering.
+63,marvel-scale,Ups DEFENSE if suffering.
+64,liquid-ooze,Draining causes injury.
+65,overgrow,Ups GRASS moves in a pinch.
+66,blaze,Ups FIRE moves in a pinch.
+67,torrent,Ups WATER moves in a pinch.
+68,swarm,Ups BUG moves in a pinch.
+69,rock-head,Prevents recoil damage.
+70,drought,Summons sunlight in battle.
+71,arena-trap,Prevents fleeing.
+72,vital-spirit,Prevents sleep.
+73,white-smoke,Prevents ability reduction.
+74,pure-power,Raises ATTACK.
+75,shell-armor,Blocks critical hits.
+76,air-lock,Negates weather effects.

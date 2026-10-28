@@ -1,0 +1,22 @@
+{
+  "origin": "Locally executed and validated dbt model SQL; not a Snowflake export",
+  "source_revisions": {
+    "PokeAPI/pokeapi": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2",
+    "pret/pokeemerald": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881"
+  },
+  "row_counts": {
+    "pokemon": 386,
+    "types": 18,
+    "abilities": 76,
+    "moves": 354,
+    "pokemon_types": 557,
+    "pokemon_abilities": 511,
+    "pokemon_moves": 19157,
+    "evolutions": 184,
+    "type_effectiveness": 324,
+    "pokemon_defensive_matchups": 6948,
+    "pokemon_evolution_ancestry": 615,
+    "pokemon_move_options": 29790,
+    "physical_stab_candidates": 254
+  }
+}

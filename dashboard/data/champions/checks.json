@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "base_100_hp_zero_points": 175,
+    "base_100_attack_32_adamant": 167
+  },
+  "milk_drink": {
+    "target": "adjacentAllyOrSelf",
+    "heal": [
+      1,
+      2
+    ]
+  },
+  "paralysis": {
+    "action_prevention_probability": [
+      1,
+      8
+    ],
+    "speed_101": 50,
+    "quick_feet_speed_101": 101
+  }
+}

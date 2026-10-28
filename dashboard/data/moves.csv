@@ -1,0 +1,355 @@
+move_id,name,type_id,category,power,accuracy,pp,machine,damaging,variable_power,description
+1,pound,1,physical,40,100,35,,1,0,Pounds the foe with forelegs or tail.
+2,karate-chop,2,physical,50,100,25,,1,0,A chopping attack with a high critical-hit ratio.
+3,double-slap,1,physical,15,85,10,,1,0,Repeatedly slaps the foe 2 to 5 times.
+4,comet-punch,1,physical,18,85,15,,1,0,Repeatedly punches the foe 2 to 5 times.
+5,mega-punch,1,physical,80,85,20,,1,0,A strong punch thrown with incredible power.
+6,pay-day,1,physical,40,100,20,,1,0,Throws coins at the foe. Money is recovered after.
+7,fire-punch,10,special,75,100,15,,1,0,A fiery punch that may burn the foe.
+8,ice-punch,15,special,75,100,15,,1,0,An icy punch that may freeze the foe.
+9,thunder-punch,13,special,75,100,15,,1,0,An electrified punch that may paralyze the foe.
+10,scratch,1,physical,40,100,35,,1,0,Scratches the foe with sharp claws.
+11,vice-grip,1,physical,55,100,30,,1,0,Grips the foe with large and powerful pincers.
+12,guillotine,1,physical,,30,5,,1,0,A powerful pincer attack that may cause fainting.
+13,razor-wind,1,physical,80,100,10,,1,0,A 2-turn move that strikes the foe on the 2nd turn.
+14,swords-dance,1,status,,,30,,0,0,A fighting dance that sharply raises ATTACK.
+15,cut,1,physical,50,95,30,HM01,1,0,"Cuts the foe with sharp scythes, claws, etc."
+16,gust,3,physical,40,100,35,,1,0,Strikes the foe with a gust of wind whipped up by wings.
+17,wing-attack,3,physical,60,100,35,,1,0,Strikes the foe with wings spread wide.
+18,whirlwind,1,status,,100,20,,0,0,Blows away the foe with wind and ends the battle.
+19,fly,3,physical,70,95,15,HM02,1,0,"Flies up on the first turn, then strikes the next turn."
+20,bind,1,physical,15,75,20,,1,0,Binds and squeezes the foe for 2 to 5 turns.
+21,slam,1,physical,80,75,20,,1,0,"Slams the foe with a long tail, vine, etc."
+22,vine-whip,12,special,35,100,10,,1,0,"Strikes the foe with slender, whiplike vines."
+23,stomp,1,physical,65,100,20,,1,0,Stomps the enemy with a big foot. May cause flinching.
+24,double-kick,2,physical,30,100,30,,1,0,A double-kicking attack that strikes the foe twice.
+25,mega-kick,1,physical,120,75,5,,1,0,An extremely powerful kick with intense force.
+26,jump-kick,2,physical,70,95,25,,1,0,A strong jumping kick. May miss and hurt the kicker.
+27,rolling-kick,2,physical,60,85,15,,1,0,A fast kick delivered from a rapid spin.
+28,sand-attack,5,status,,100,15,,0,0,Reduces the foe’s accuracy by hurling sand in its face.
+29,headbutt,1,physical,70,100,15,,1,0,A ramming attack that may cause flinching.
+30,horn-attack,1,physical,65,100,25,,1,0,Jabs the foe with sharp horns.
+31,fury-attack,1,physical,15,85,20,,1,0,"Jabs the foe 2 to 5 times with sharp horns, etc."
+32,horn-drill,1,physical,,30,5,,1,0,A one-hit KO attack that uses a horn like a drill.
+33,tackle,1,physical,35,95,35,,1,0,Charges the foe with a full- body tackle.
+34,body-slam,1,physical,85,100,15,,1,0,A full-body slam that may cause paralysis.
+35,wrap,1,physical,15,85,20,,1,0,"Wraps and squeezes the foe 2 to 5 times with vines, etc."
+36,take-down,1,physical,90,85,20,,1,0,A reckless charge attack that also hurts the user.
+37,thrash,1,physical,90,100,20,,1,0,A rampage of 2 to 3 turns that confuses the user.
+38,double-edge,1,physical,120,100,15,,1,0,A life-risking tackle that also hurts the user.
+39,tail-whip,1,status,,100,30,,0,0,Wags the tail to lower the foe’s DEFENSE.
+40,poison-sting,4,physical,15,100,35,,1,0,"A toxic attack with barbs, etc., that may poison."
+41,twineedle,7,physical,25,100,20,,1,0,Stingers on the forelegs jab the foe twice.
+42,pin-missile,7,physical,14,85,20,,1,0,Sharp pins are fired to strike 2 to 5 times.
+43,leer,1,status,,100,30,,0,0,Frightens the foe with a leer to lower DEFENSE.
+44,bite,17,special,60,100,25,,1,0,Bites with vicious fangs. May cause flinching.
+45,growl,1,status,,100,40,,0,0,Growls cutely to reduce the foe’s ATTACK.
+46,roar,1,status,,100,20,TM05,0,0,Makes the foe flee to end the battle.
+47,sing,1,status,,55,15,,0,0,A soothing song lulls the foe into a deep slumber.
+48,supersonic,1,status,,55,20,,0,0,Emits bizarre sound waves that may confuse the foe.
+49,sonic-boom,1,physical,,90,20,,1,0,Launches shock waves that always inflict 20 HP damage.
+50,disable,1,status,,55,20,,0,0,Psychically disables one of the foe’s moves.
+51,acid,4,physical,40,100,30,,1,0,Sprays a hide-melting acid. May lower DEFENSE.
+52,ember,10,special,40,100,25,,1,0,A weak fire attack that may inflict a burn.
+53,flamethrower,10,special,95,100,15,TM35,1,0,A powerful fire attack that may inflict a burn.
+54,mist,15,status,,,30,,0,0,Creates a mist that stops reduction of abilities.
+55,water-gun,11,special,40,100,25,,1,0,Squirts water to attack the foe.
+56,hydro-pump,11,special,120,80,5,,1,0,Blasts water at high power to strike the foe.
+57,surf,11,special,95,100,15,HM03,1,0,"Creates a huge wave, then crashes it down on the foe."
+58,ice-beam,15,special,95,100,10,TM13,1,0,Blasts the foe with an icy beam that may freeze it.
+59,blizzard,15,special,120,70,5,TM14,1,0,Hits the foe with an icy storm that may freeze it.
+60,psybeam,14,special,65,100,20,,1,0,Fires a peculiar ray that may confuse the foe.
+61,bubble-beam,11,special,65,100,20,,1,0,Forcefully sprays bubbles that may lower SPEED.
+62,aurora-beam,15,special,65,100,20,,1,0,Fires a rainbow-colored beam that may lower ATTACK.
+63,hyper-beam,1,physical,150,90,5,TM15,1,0,"Powerful, but leaves the user immobile the next turn."
+64,peck,3,physical,35,100,35,,1,0,"Attacks the foe with a jabbing beak, etc."
+65,drill-peck,3,physical,80,100,20,,1,0,A corkscrewing attack with the beak acting as a drill.
+66,submission,2,physical,80,80,25,,1,0,A reckless body slam that also hurts the user.
+67,low-kick,2,physical,,100,20,,1,1,A kick that inflicts more damage on heavier foes.
+68,counter,2,physical,,100,20,,1,0,Retaliates any physical hit with double the power.
+69,seismic-toss,2,physical,,100,20,,1,0,Inflicts damage identical to the user’s level.
+70,strength,1,physical,80,100,15,HM04,1,0,"Builds enormous power, then slams the foe."
+71,absorb,12,special,20,100,20,,1,0,An attack that absorbs half the damage inflicted.
+72,mega-drain,12,special,40,100,10,,1,0,An attack that absorbs half the damage inflicted.
+73,leech-seed,12,status,,90,10,,0,0,Plants a seed on the foe to steal HP on every turn.
+74,growth,1,status,,,40,,0,0,Forces the body to grow and heightens SP. ATK.
+75,razor-leaf,12,special,55,95,25,,1,0,Cuts the enemy with leaves. High critical-hit ratio.
+76,solar-beam,12,special,120,100,10,TM22,1,0,"Absorbs light in one turn, then attacks next turn."
+77,poison-powder,4,status,,75,35,,0,0,Scatters a toxic powder that may poison the foe.
+78,stun-spore,12,status,,75,30,,0,0,Scatters a powder that may paralyze the foe.
+79,sleep-powder,12,status,,75,15,,0,0,Scatters a powder that may cause the foe to sleep.
+80,petal-dance,12,special,70,100,20,,1,0,A rampage of 2 to 3 turns that confuses the user.
+81,string-shot,7,status,,95,40,,0,0,Binds the foe with string to reduce its SPEED.
+82,dragon-rage,16,special,,100,10,,1,0,Launches shock waves that always inflict 40 HP damage.
+83,fire-spin,10,special,15,70,15,,1,0,Traps the foe in a ring of fire for 2 to 5 turns.
+84,thunder-shock,13,special,40,100,30,,1,0,An electrical attack that may paralyze the foe.
+85,thunderbolt,13,special,95,100,15,TM24,1,0,A strong electrical attack that may paralyze the foe.
+86,thunder-wave,13,status,,100,20,,0,0,A weak jolt of electricity that paralyzes the foe.
+87,thunder,13,special,120,70,10,TM25,1,0,A lightning attack that may cause paralysis.
+88,rock-throw,6,physical,50,90,15,,1,0,Throws small rocks to strike the foe.
+89,earthquake,5,physical,100,100,10,TM26,1,0,"A powerful quake, but has no effect on flying foes."
+90,fissure,5,physical,,30,5,,1,0,A one-hit KO move that drops the foe in a fissure.
+91,dig,5,physical,60,100,10,TM28,1,0,Digs underground the first turn and strikes next turn.
+92,toxic,4,status,,85,10,TM06,0,0,Poisons the foe with an intensifying toxin.
+93,confusion,14,special,50,100,25,,1,0,A psychic attack that may cause confusion.
+94,psychic,14,special,90,100,10,TM29,1,0,A powerful psychic attack that may lower SP. DEF.
+95,hypnosis,14,status,,60,20,,0,0,A hypnotizing move that may induce sleep.
+96,meditate,14,status,,,40,,0,0,Meditates in a peaceful fashion to raise ATTACK.
+97,agility,14,status,,,30,,0,0,Relaxes the body to sharply boost SPEED.
+98,quick-attack,1,physical,40,100,30,,1,0,An extremely fast attack that always strikes first.
+99,rage,1,physical,20,100,20,,1,0,Raises the user’s ATTACK every time it is hit.
+100,teleport,14,status,,,20,,0,0,A psychic move for fleeing from battle instantly.
+101,night-shade,8,physical,,100,15,,1,0,Inflicts damage identical to the user’s level.
+102,mimic,1,status,,,10,,0,0,Copies a move used by the foe during one battle.
+103,screech,1,status,,85,40,,0,0,Emits a screech to sharply reduce the foe’s DEFENSE.
+104,double-team,1,status,,,15,TM32,0,0,Creates illusory copies to raise evasiveness.
+105,recover,1,status,,,20,,0,0,Recovers up to half the user’s maximum HP.
+106,harden,1,status,,,30,,0,0,Stiffens the body’s muscles to raise DEFENSE.
+107,minimize,1,status,,,20,,0,0,Minimizes the user’s size to raise evasiveness.
+108,smokescreen,1,status,,100,20,,0,0,"Lowers the foe’s accuracy using smoke, ink, etc."
+109,confuse-ray,8,status,,100,10,,0,0,A sinister ray that confuses the foe.
+110,withdraw,11,status,,,40,,0,0,Withdraws the body into its hard shell to raise DEFENSE.
+111,defense-curl,1,status,,,40,,0,0,Curls up to conceal weak spots and raise DEFENSE.
+112,barrier,14,status,,,30,,0,0,Creates a barrier that sharply raises DEFENSE.
+113,light-screen,14,status,,,30,TM16,0,0,Creates a wall of light that lowers SP. ATK damage.
+114,haze,15,status,,,30,,0,0,Creates a black haze that eliminates all stat changes.
+115,reflect,14,status,,,20,TM33,0,0,Creates a wall of light that weakens physical attacks.
+116,focus-energy,1,status,,,30,,0,0,Focuses power to raise the critical-hit ratio.
+117,bide,1,physical,,,10,,1,0,Endures attack for 2 turns to retaliate double.
+118,metronome,1,status,,,10,,0,0,Waggles a finger to use any POKéMON move at random.
+119,mirror-move,3,status,,,20,,0,0,Counters the foe’s attack with the same move.
+120,self-destruct,1,physical,200,100,5,,1,0,Inflicts severe damage but makes the user faint.
+121,egg-bomb,1,physical,100,75,10,,1,0,An egg is forcibly hurled at the foe.
+122,lick,8,physical,20,100,30,,1,0,Licks with a long tongue to injure. May also paralyze.
+123,smog,4,physical,20,70,20,,1,0,An exhaust-gas attack that may also poison.
+124,sludge,4,physical,65,100,20,,1,0,Sludge is hurled to inflict damage. May also poison.
+125,bone-club,5,physical,65,85,20,,1,0,Clubs the foe with a bone. May cause flinching.
+126,fire-blast,10,special,120,85,5,TM38,1,0,Incinerates everything it strikes. May cause a burn.
+127,waterfall,11,special,80,100,15,HM07,1,0,Charges the foe with speed to climb waterfalls.
+128,clamp,11,special,35,75,10,,1,0,Traps and squeezes the foe for 2 to 5 turns.
+129,swift,1,physical,60,,20,,1,0,Sprays star-shaped rays that never miss.
+130,skull-bash,1,physical,100,100,15,,1,0,"Tucks in the head, then attacks on the next turn."
+131,spike-cannon,1,physical,20,100,15,,1,0,Launches sharp spikes that strike 2 to 5 times.
+132,constrict,1,physical,10,100,35,,1,0,Constricts to inflict pain. May lower SPEED.
+133,amnesia,14,status,,,20,,0,0,Forgets about something and sharply raises SP. DEF.
+134,kinesis,14,status,,80,15,,0,0,Distracts the foe. May lower accuracy.
+135,soft-boiled,1,status,,,10,,0,0,Recovers up to half the user’s maximum HP.
+136,high-jump-kick,2,physical,85,90,20,,1,0,"A jumping knee kick. If it misses, the user is hurt."
+137,glare,1,status,,75,30,,0,0,Intimidates and frightens the foe into paralysis.
+138,dream-eater,14,special,100,100,15,,1,0,Takes one half the damage inflicted on a sleeping foe.
+139,poison-gas,4,status,,55,40,,0,0,Envelops the foe in a toxic gas that may poison.
+140,barrage,1,physical,15,85,20,,1,0,Hurls round objects at the foe 2 to 5 times.
+141,leech-life,7,physical,20,100,15,,1,0,An attack that steals half the damage inflicted.
+142,lovely-kiss,1,status,,75,10,,0,0,Demands a kiss with a scary face that induces sleep.
+143,sky-attack,3,physical,140,90,5,,1,0,"Searches out weak spots, then strikes the next turn."
+144,transform,1,status,,,10,,0,0,Alters the user’s cells to become a copy of the foe.
+145,bubble,11,special,20,100,30,,1,0,An attack using bubbles. May lower the foe’s SPEED.
+146,dizzy-punch,1,physical,70,100,10,,1,0,A rhythmic punch that may confuse the foe.
+147,spore,12,status,,100,15,,0,0,Scatters a cloud of spores that always induce sleep.
+148,flash,1,status,,70,20,HM05,0,0,Looses a powerful blast of light that cuts accuracy.
+149,psywave,14,special,,80,15,,1,0,Attacks with a psychic wave of varying intensity.
+150,splash,1,status,,,40,,0,0,It’s just a splash... Has no effect whatsoever.
+151,acid-armor,4,status,,,40,,0,0,Liquifies the user’s body to sharply raise DEFENSE.
+152,crabhammer,11,special,90,85,10,,1,0,Hammers with a pincer. Has a high critical-hit ratio.
+153,explosion,1,physical,250,100,5,,1,0,Inflicts severe damage but makes the user faint.
+154,fury-swipes,1,physical,18,80,15,,1,0,"Rakes the foe with sharp claws, etc., 2 to 5 times."
+155,bonemerang,5,physical,50,90,10,,1,0,Throws a bone boomerang that strikes twice.
+156,rest,14,status,,,10,TM44,0,0,"The user sleeps for 2 turns, restoring HP and status."
+157,rock-slide,6,physical,75,90,10,,1,0,Large boulders are hurled. May cause flinching.
+158,hyper-fang,1,physical,80,90,15,,1,0,Attacks with sharp fangs. May cause flinching.
+159,sharpen,1,status,,,30,,0,0,Reduces the polygon count and raises ATTACK.
+160,conversion,1,status,,,30,,0,0,Changes the user’s type into a known move’s type.
+161,tri-attack,1,physical,80,100,10,,1,0,Fires three types of beams at the same time.
+162,super-fang,1,physical,,90,10,,1,0,Attacks with sharp fangs and cuts half the foe’s HP.
+163,slash,1,physical,70,100,20,,1,0,"Slashes with claws, etc. Has a high critical-hit ratio."
+164,substitute,1,status,,,10,,0,0,Creates a decoy using 1/4 of the user’s maximum HP.
+165,struggle,1,physical,50,,1,,1,0,Used only if all PP are gone. Also hurts the user a little.
+166,sketch,1,status,,,1,,0,0,Copies the foe’s last move permanently.
+167,triple-kick,2,physical,10,90,10,,1,0,Kicks the foe 3 times in a row with rising intensity.
+168,thief,17,special,40,100,10,TM46,1,0,"While attacking, it may steal the foe’s held item."
+169,spider-web,7,status,,,10,,0,0,Ensnares the foe to stop it from fleeing or switching.
+170,mind-reader,1,status,,,5,,0,0,Senses the foe’s action to ensure the next move’s hit.
+171,nightmare,8,status,,100,15,,0,0,Inflicts 1/4 damage on a sleeping foe every turn.
+172,flame-wheel,10,special,60,100,25,,1,0,A fiery charge attack that may inflict a burn.
+173,snore,1,physical,40,100,15,,1,0,A loud attack that can be used only while asleep.
+174,curse,10001,status,,,10,,0,0,A move that functions differently for GHOSTS.
+175,flail,1,physical,,100,15,,1,1,Inflicts more damage when the user’s HP is down.
+176,conversion-2,1,status,,,30,,0,0,Makes the user resistant to the last attack’s type.
+177,aeroblast,3,physical,100,95,5,,1,0,Launches a vacuumed blast. High critical-hit ratio.
+178,cotton-spore,12,status,,85,40,,0,0,"Spores cling to the foe, sharply reducing SPEED."
+179,reversal,2,physical,,100,15,,1,1,Inflicts more damage when the user’s HP is down.
+180,spite,8,status,,100,10,,0,0,Spitefully cuts the PP of the foe’s last move.
+181,powder-snow,15,special,40,100,25,,1,0,Blasts the foe with a snowy gust. May cause freezing.
+182,protect,1,status,,,10,TM17,0,0,"Evades attack, but may fail if used in succession."
+183,mach-punch,2,physical,40,100,30,,1,0,A punch is thrown at wicked speed to strike first.
+184,scary-face,1,status,,90,10,,0,0,Frightens with a scary face to sharply reduce SPEED.
+185,feint-attack,17,special,60,,20,,1,0,"Draws the foe close, then strikes without fail."
+186,sweet-kiss,1,status,,75,10,,0,0,Demands a kiss with a cute look. May cause confusion.
+187,belly-drum,1,status,,,10,,0,0,Maximizes ATTACK while sacrificing HP.
+188,sludge-bomb,4,physical,90,100,10,TM36,1,0,Sludge is hurled to inflict damage. May also poison.
+189,mud-slap,5,physical,20,100,10,,1,0,Hurls mud in the foe’s face to reduce its accuracy.
+190,octazooka,11,special,65,85,10,,1,0,Fires a lump of ink to damage and cut accuracy.
+191,spikes,5,status,,,20,,0,0,Sets spikes that hurt a foe switching in.
+192,zap-cannon,13,special,100,50,5,,1,0,"Powerful and sure to cause paralysis, but inaccurate."
+193,foresight,1,status,,,40,,0,0,Negates the foe’s efforts to heighten evasiveness.
+194,destiny-bond,8,status,,,5,,0,0,"If the user faints, the foe is also made to faint."
+195,perish-song,1,status,,,5,,0,0,Any POKéMON hearing this song faints in 3 turns.
+196,icy-wind,15,special,55,95,15,,1,0,A chilling attack that lowers the foe’s SPEED.
+197,detect,2,status,,,5,,0,0,"Evades attack, but may fail if used in succession."
+198,bone-rush,5,physical,25,80,10,,1,0,Strikes the foe with a bone in hand 2 to 5 times.
+199,lock-on,1,status,,,5,,0,0,Locks on to the foe to ensure the next move hits.
+200,outrage,16,special,90,100,15,,1,0,A rampage of 2 to 3 turns that confuses the user.
+201,sandstorm,6,status,,,10,TM37,0,0,Causes a sandstorm that rages for several turns.
+202,giga-drain,12,special,60,100,5,TM19,1,0,An attack that steals half the damage inflicted.
+203,endure,1,status,,,10,,0,0,"Endures any attack for 1 turn, leaving at least 1HP."
+204,charm,1,status,,100,20,,0,0,Charms the foe and sharply reduces its ATTACK.
+205,rollout,6,physical,30,90,20,,1,0,An attack lasting 5 turns with rising intensity.
+206,false-swipe,1,physical,40,100,40,,1,0,An attack that leaves the foe with at least 1 HP.
+207,swagger,1,status,,90,15,,0,0,"Confuses the foe, but also sharply raises ATTACK."
+208,milk-drink,1,status,,,10,,0,0,Recovers up to half the user’s maximum HP.
+209,spark,13,special,65,100,20,,1,0,An electrified tackle that may paralyze the foe.
+210,fury-cutter,7,physical,10,95,20,,1,0,An attack that intensifies on each successive hit.
+211,steel-wing,9,physical,70,90,25,TM47,1,0,Strikes the foe with hard wings spread wide.
+212,mean-look,1,status,,,5,,0,0,Fixes the foe with a mean look that prevents escape.
+213,attract,1,status,,100,15,TM45,0,0,Makes the opposite gender less likely to attack.
+214,sleep-talk,1,status,,,10,,0,0,Uses an available move randomly while asleep.
+215,heal-bell,1,status,,,5,,0,0,Chimes soothingly to heal all status abnormalities.
+216,return,1,physical,,100,20,TM27,1,1,An attack that increases in power with friendship.
+217,present,1,physical,,90,15,,1,1,A gift in the form of a bomb. May restore HP.
+218,frustration,1,physical,,100,20,TM21,1,1,An attack that is stronger if the TRAINER is disliked.
+219,safeguard,1,status,,,25,TM20,0,0,A mystical force prevents all status problems.
+220,pain-split,1,status,,,20,,0,0,"Adds the user and foe’s HP, then shares them equally."
+221,sacred-fire,10,special,100,95,5,,1,0,A mystical fire attack that may inflict a burn.
+222,magnitude,5,physical,,100,30,,1,1,A ground-shaking attack of random intensity.
+223,dynamic-punch,2,physical,100,50,5,,1,0,"Powerful and sure to cause confusion, but inaccurate."
+224,megahorn,7,physical,120,85,10,,1,0,A brutal ramming attack using out-thrust horns.
+225,dragon-breath,16,special,60,100,20,,1,0,Strikes the foe with an incredible blast of breath.
+226,baton-pass,1,status,,,40,,0,0,Switches out the user while keeping effects in play.
+227,encore,1,status,,100,5,,0,0,Makes the foe repeat its last move over 2 to 6 turns.
+228,pursuit,17,special,40,100,20,,1,0,Inflicts bad damage if used on a foe switching out.
+229,rapid-spin,1,physical,20,100,40,,1,0,Spins the body at high speed to strike the foe.
+230,sweet-scent,1,status,,100,20,,0,0,Allures the foe to reduce evasiveness.
+231,iron-tail,9,physical,100,75,15,TM23,1,0,Attacks with a rock-hard tail. May lower DEFENSE.
+232,metal-claw,9,physical,50,95,35,,1,0,A claw attack that may raise the user’s ATTACK.
+233,vital-throw,2,physical,70,,10,,1,0,"Makes the user’s move last, but it never misses."
+234,morning-sun,1,status,,,5,,0,0,Restores HP. The amount varies with the weather.
+235,synthesis,12,status,,,5,,0,0,Restores HP. The amount varies with the weather.
+236,moonlight,1,status,,,5,,0,0,Restores HP. The amount varies with the weather.
+237,hidden-power,1,physical,,100,15,TM10,1,1,The effectiveness varies with the user.
+238,cross-chop,2,physical,100,80,5,,1,0,A double-chopping attack. High critical-hit ratio.
+239,twister,16,special,40,100,20,,1,0,Whips up a vicious twister to tear at the foe.
+240,rain-dance,11,status,,,5,TM18,0,0,Boosts the power of WATER- type moves for 5 turns.
+241,sunny-day,10,status,,,5,TM11,0,0,Boosts the power of FIRE- type moves for 5 turns.
+242,crunch,17,special,80,100,15,,1,0,Crunches with sharp fangs. May lower SP. DEF.
+243,mirror-coat,14,special,,100,20,,1,0,Counters the foe’s special attack at double the power.
+244,psych-up,1,status,,,10,,0,0,Copies the foe’s effect(s) and gives to the user.
+245,extreme-speed,1,physical,80,100,5,,1,0,An extremely fast and powerful attack.
+246,ancient-power,6,physical,60,100,5,,1,0,An attack that may raise all stats.
+247,shadow-ball,8,physical,80,100,15,TM30,1,0,Hurls a black blob that may lower the foe’s SP. DEF.
+248,future-sight,14,special,80,90,15,,1,0,Heightens inner power to strike 2 turns later.
+249,rock-smash,2,physical,20,100,15,HM06,1,0,A rock-crushing attack that may lower DEFENSE.
+250,whirlpool,11,special,15,70,15,,1,0,Traps and hurts the foe in a whirlpool for 2 to 5 turns.
+251,beat-up,17,special,,100,10,,1,1,Summons party POKéMON to join in the attack.
+252,fake-out,1,physical,40,100,10,,1,0,"A 1st-turn, 1st-strike move that causes flinching."
+253,uproar,1,physical,50,100,10,,1,0,Causes an uproar for 2 to 5 turns and prevents sleep.
+254,stockpile,1,status,,,10,,0,0,Charges up power for up to 3 turns.
+255,spit-up,1,physical,,100,10,,1,1,Releases stockpiled power (the more the better).
+256,swallow,1,status,,,10,,0,0,Absorbs stockpiled power and restores HP.
+257,heat-wave,10,special,100,90,10,,1,0,Exhales a hot breath on the foe. May inflict a burn.
+258,hail,15,status,,,10,TM07,0,0,Summons a hailstorm that strikes every turn.
+259,torment,17,status,,100,15,TM41,0,0,Torments the foe and stops successive use of a move.
+260,flatter,17,status,,100,15,,0,0,"Confuses the foe, but raises its SP. ATK."
+261,will-o-wisp,10,status,,75,15,,0,0,Inflicts a burn on the foe with intense fire.
+262,memento,17,status,,100,10,,0,0,The user faints and lowers the foe’s abilities.
+263,facade,1,physical,70,100,20,TM42,1,0,"Boosts ATTACK when burned, paralyzed, or poisoned."
+264,focus-punch,2,physical,150,100,20,TM01,1,0,A powerful loyalty attack. The user flinches if hit.
+265,smelling-salts,1,physical,60,100,10,,1,0,"Powerful against paralyzed foes, but also heals them."
+266,follow-me,1,status,,,20,,0,0,Draws attention to make foes attack only the user.
+267,nature-power,1,status,,,20,,0,0,The type of attack varies depending on the location.
+268,charge,13,status,,,20,,0,0,Charges power to boost the electric move used next.
+269,taunt,17,status,,100,20,TM12,0,0,Taunts the foe into only using attack moves.
+270,helping-hand,1,status,,,20,,0,0,Boosts the power of the recipient’s moves.
+271,trick,14,status,,100,10,,0,0,Tricks the foe into trading held items.
+272,role-play,14,status,,,10,,0,0,Mimics the target and copies its special ability.
+273,wish,1,status,,,10,,0,0,A wish that restores HP. It takes time to work.
+274,assist,1,status,,,20,,0,0,Attacks randomly with one of the partner’s moves.
+275,ingrain,12,status,,,20,,0,0,Lays roots that restore HP. The user can’t switch out.
+276,superpower,2,physical,120,100,5,,1,0,"Boosts strength sharply, but lowers abilities."
+277,magic-coat,14,status,,,15,,0,0,Reflects special effects back to the attacker.
+278,recycle,1,status,,,10,,0,0,Recycles a used item for one more use.
+279,revenge,2,physical,60,100,10,,1,0,An attack that gains power if injured by the foe.
+280,brick-break,2,physical,75,100,15,TM31,1,0,Destroys barriers such as REFLECT and causes damage.
+281,yawn,1,status,,,10,,0,0,"Lulls the foe into yawning, then sleeping next turn."
+282,knock-off,17,special,20,100,20,,1,0,Knocks down the foe’s held item to prevent its use.
+283,endeavor,1,physical,,100,5,,1,0,Gains power if the user’s HP is lower than the foe’s HP.
+284,eruption,10,special,,100,5,,1,1,"The higher the user’s HP, the more damage caused."
+285,skill-swap,14,status,,,10,TM48,0,0,The user swaps special abilities with the target.
+286,imprison,14,status,,,10,,0,0,Prevents foes from using moves known by the user.
+287,refresh,1,status,,,20,,0,0,"Heals poisoning, paralysis, or a burn."
+288,grudge,8,status,,,5,,0,0,"If the user faints, deletes all PP of foe’s last move."
+289,snatch,17,status,,,10,TM49,0,0,Steals the effects of the move the target uses next.
+290,secret-power,1,physical,70,100,20,TM43,1,0,An attack with effects that vary by location.
+291,dive,11,special,60,100,10,HM08,1,0,Dives underwater the first turn and strikes next turn.
+292,arm-thrust,2,physical,15,100,20,,1,0,Straight-arm punches that strike the foe 2 to 5 times.
+293,camouflage,1,status,,,20,,0,0,Alters the POKéMON’s type depending on the location.
+294,tail-glow,7,status,,,20,,0,0,Flashes a light that sharply raises SP. ATK.
+295,luster-purge,14,special,70,100,5,,1,0,Attacks with a burst of light. May lower SP. DEF.
+296,mist-ball,14,special,70,100,5,,1,0,Attacks with a flurry of down. May lower SP. ATK.
+297,feather-dance,3,status,,100,15,,0,0,Envelops the foe with down to sharply reduce ATTACK.
+298,teeter-dance,1,status,,100,20,,0,0,Confuses all POKéMON on the scene.
+299,blaze-kick,10,special,85,90,10,,1,0,A kick with a high critical- hit ratio. May cause a burn.
+300,mud-sport,5,status,,,15,,0,0,Covers the user in mud to raise electrical resistance.
+301,ice-ball,15,special,30,90,20,,1,0,A 5-turn attack that gains power on successive hits.
+302,needle-arm,12,special,60,100,15,,1,0,Attacks with thorny arms. May cause flinching.
+303,slack-off,1,status,,,10,,0,0,Slacks off and restores half the maximum HP.
+304,hyper-voice,1,physical,90,100,10,,1,0,A loud attack that uses sound waves to injure.
+305,poison-fang,4,physical,50,100,15,,1,0,A sharp-fanged attack. May badly poison the foe.
+306,crush-claw,1,physical,75,95,10,,1,0,Tears at the foe with sharp claws. May lower DEFENSE.
+307,blast-burn,10,special,150,90,5,,1,0,"Powerful, but leaves the user immobile the next turn."
+308,hydro-cannon,11,special,150,90,5,,1,0,"Powerful, but leaves the user immobile the next turn."
+309,meteor-mash,9,physical,100,85,10,,1,0,Fires a meteor-like punch. May raise ATTACK.
+310,astonish,8,physical,30,100,15,,1,0,An attack that may shock the foe into flinching.
+311,weather-ball,1,physical,,100,10,,1,1,The move’s type and power change with the weather.
+312,aromatherapy,12,status,,,5,,0,0,Heals all status problems with a soothing scent.
+313,fake-tears,17,status,,100,20,,0,0,Feigns crying to sharply lower the foe’s SP. DEF.
+314,air-cutter,3,physical,55,95,25,,1,0,Hacks with razorlike wind. High critical-hit ratio.
+315,overheat,10,special,140,90,5,TM50,1,0,"Allows a full-power attack, but sharply lowers SP. ATK."
+316,odor-sleuth,1,status,,,40,,0,0,Negates the foe’s efforts to heighten evasiveness.
+317,rock-tomb,6,physical,50,80,10,TM39,1,0,Stops the foe from moving with rocks and cuts SPEED.
+318,silver-wind,7,physical,60,100,5,,1,0,A powdery attack that may raise abilities.
+319,metal-sound,9,status,,85,40,,0,0,Emits a horrible screech that sharply lowers SP. DEF.
+320,grass-whistle,12,status,,55,15,,0,0,Lulls the foe into sleep with a pleasant melody.
+321,tickle,1,status,,100,20,,0,0,Makes the foe laugh to lower ATTACK and DEFENSE.
+322,cosmic-power,14,status,,,20,,0,0,Raises DEFENSE and SP. DEF with a mystic power.
+323,water-spout,11,special,,100,5,,1,1,Inflicts more damage if the user’s HP is high.
+324,signal-beam,7,physical,75,100,15,,1,0,A strange beam attack that may confuse the foe.
+325,shadow-punch,8,physical,60,,20,,1,0,An unavoidable punch that is thrown from shadows.
+326,extrasensory,14,special,80,100,30,,1,0,Attacks with a peculiar power. May cause flinching.
+327,sky-uppercut,2,physical,85,90,15,,1,0,An uppercut thrown as if leaping into the sky.
+328,sand-tomb,5,physical,15,70,15,,1,0,Traps and hurts the foe in quicksand for 2 to 5 turns.
+329,sheer-cold,15,special,,30,5,,1,0,A chilling attack that causes fainting if it hits.
+330,muddy-water,11,special,95,85,10,,1,0,Attacks with muddy water. May lower accuracy.
+331,bullet-seed,12,special,10,100,30,TM09,1,0,Shoots 2 to 5 seeds in a row to strike the foe.
+332,aerial-ace,3,physical,60,,20,TM40,1,0,An extremely speedy and unavoidable attack.
+333,icicle-spear,15,special,10,100,30,,1,0,Attacks the foe by firing 2 to 5 icicles in a row.
+334,iron-defense,9,status,,,15,,0,0,Hardens the body’s surface to sharply raise DEFENSE.
+335,block,1,status,,,5,,0,0,Blocks the foe’s way to prevent escape.
+336,howl,1,status,,,40,,0,0,Howls to raise the spirit and boosts ATTACK.
+337,dragon-claw,16,special,80,100,15,TM02,1,0,Slashes the foe with sharp claws.
+338,frenzy-plant,12,special,150,90,5,,1,0,"Powerful, but leaves the user immobile the next turn."
+339,bulk-up,2,status,,,20,TM08,0,0,Bulks up the body to boost both ATTACK and DEFENSE.
+340,bounce,3,physical,85,85,5,,1,0,"Bounces up, then down the next turn. May paralyze."
+341,mud-shot,5,physical,55,95,15,,1,0,Hurls mud at the foe and reduces SPEED.
+342,poison-tail,4,physical,50,100,25,,1,0,Has a high critical-hit ratio. May also poison.
+343,covet,1,physical,40,100,40,,1,0,Cutely begs to obtain an item held by the foe.
+344,volt-tackle,13,special,120,100,15,,1,0,A life-risking tackle that slightly hurts the user.
+345,magical-leaf,12,special,60,,20,,1,0,Attacks with a strange leaf that cannot be evaded.
+346,water-sport,11,status,,,15,,0,0,The user becomes soaked to raise resistance to fire.
+347,calm-mind,14,status,,,20,TM04,0,0,Raises SP. ATK and SP. DEF by focusing the mind.
+348,leaf-blade,12,special,70,100,15,,1,0,Slashes with a sharp leaf. High critical-hit ratio.
+349,dragon-dance,16,status,,,20,,0,0,A mystical dance that ups ATTACK and SPEED.
+350,rock-blast,6,physical,25,80,10,,1,0,Hurls boulders at the foe 2 to 5 times in a row.
+351,shock-wave,13,special,60,,20,TM34,1,0,A fast and unavoidable electric attack.
+352,water-pulse,11,special,60,100,20,TM03,1,0,Attacks with ultrasonic waves. May confuse the foe.
+353,doom-desire,9,physical,120,85,5,,1,0,Summons strong sunlight to attack 2 turns later.
+354,psycho-boost,14,special,140,90,5,,1,0,"Allows a full-power attack, but sharply lowers SP. ATK."
