@@ -157,38 +157,39 @@ def _render_page(view,tables):
         if identifier not in by_id:
             st.info('This Pokémon is not in the M-C species pool.'); return
         p=by_id[identifier]
-        a,b,c=st.columns([4,1,1])
+        a,b,c=st.columns([2,1,1])
         if a.button('← Back to Champions Pokédex'): go('dex')
         position = next(i for i, entry in enumerate(pool) if entry['id'] == identifier)
         if position > 0 and b.button('← Previous', help=pool[position-1]['name'], width='stretch'):
             go('pokemon', pool[position-1]['id'])
         if position < len(pool)-1 and c.button('Next →', help=pool[position+1]['name'], width='stretch'):
             go('pokemon', pool[position+1]['id'])
-        picture,info,stats=st.columns([1.05,1.25,1.6],gap='large')
+        st.caption(f"NATIONAL #{p['num']:03d} · REGULATION M-C")
+        st.title(p['name'])
+        picture,stats=st.columns([1,3],gap='medium')
         with picture:
-            st.image(sprite(p),width=160)
-        with info:
-            st.caption(f"NATIONAL #{p['num']:03d} · REGULATION M-C")
-            st.title(p['name']); badges(p['types'])
-            st.markdown('**Abilities in Champions**')
-            for name in dict.fromkeys(p['abilities'].values()):
-                a=abilities[name]
-                if st.button(name,key='mc_pokemon_ability_'+a['id']): go('ability',a['id'])
-            with st.expander('Ability effects'):
-                for name in dict.fromkeys(p['abilities'].values()):
-                    st.markdown(f'**{name}**')
-                    st.caption(abilities[name]['desc'])
-            if st.button('Compare this Pokémon'):
-                st.session_state['mc_compare']=[identifier]; go('compare')
-            if p['battleOnly']:
-                st.caption('Battle transformation: '+str(p['battleOnly']))
-            if p['requiredItems']:
-                st.caption('Required item: '+', '.join(p['requiredItems']))
+            st.image(sprite(p),width=120)
+            badges(p['types'])
+        if p['battleOnly']:
+            st.caption('Battle transformation: '+str(p['battleOnly']))
+        if p['requiredItems']:
+            st.caption('Required item: '+', '.join(p['requiredItems']))
         with stats:
             st.subheader('Base stats')
             markup=''.join(f'<div class="stat"><span>{label}</span><strong>{p["baseStats"][stat]}</strong><div class="track"><div class="fill" style="width:{p["baseStats"][stat]/255*100}%"></div></div></div>' for stat,label in STATS.items())
             st.markdown(markup,unsafe_allow_html=True)
             st.markdown(f'**Base stat total · {sum(p["baseStats"].values())}**')
+        st.markdown('**Abilities in Champions**')
+        with st.container(horizontal=True):
+            for name in dict.fromkeys(p['abilities'].values()):
+                ability=abilities[name]
+                if st.button(name,key='mc_pokemon_ability_'+ability['id']): go('ability',ability['id'])
+            if st.button('Compare this Pokémon'):
+                st.session_state['mc_compare']=[identifier]; go('compare')
+        with st.expander('Ability effects'):
+            for name in dict.fromkeys(p['abilities'].values()):
+                st.markdown(f'**{name}**')
+                st.write(abilities[name]['desc'])
         defense,learn,family=st.tabs(['Type defenses','Moves learned','Other forms'])
         with learn:
             query=st.text_input('Find a move',key='mc_learn_query')
