@@ -9,6 +9,7 @@ from urllib.parse import quote, urlsplit
 import pandas as pd
 import streamlit as st
 from icons import icon_uri, svg
+from defense_ui import defense_cards, multiplier_label
 
 STATS = {'hp':'HP', 'atk':'Attack', 'def':'Defense', 'spa':'Sp. Atk', 'spd':'Sp. Def', 'spe':'Speed'}
 
@@ -104,7 +105,8 @@ def defense_table(species,types):
     frame=pd.DataFrame({p['name']:defenses(p,types) for p in species})
     def color(value):
         return 'background-color: '+('#ffe2d9' if value>1 else '#e9e2f5' if value==0 else '#e1f0e3' if value<1 else '#fafbf8')
-    st.dataframe(frame.style.map(color).format(lambda x:f'{x:g}×'),width='stretch',height=380)
+    frame.index.name = 'Attacking type'
+    st.dataframe(frame.style.map(color).format(multiplier_label),width='stretch',height=380)
     st.caption('Typing only: ability, item and field effects are not applied. Red: weakness · green: resistance · purple: immunity.')
 
 
@@ -155,19 +157,29 @@ def _render_page(view,tables):
         if identifier not in by_id:
             st.info('This Pokémon is not in the M-C species pool.'); return
         p=by_id[identifier]
-        a,b=st.columns([4,1])
+        a,b,c=st.columns([4,1,1])
         if a.button('← Back to Champions Pokédex'): go('dex')
-        if b.button('Compare Pokémon'):
-            st.session_state['mc_compare']=[identifier]; go('compare')
-        picture,info,stats=st.columns([1,1.6,2])
+        position = next(i for i, entry in enumerate(pool) if entry['id'] == identifier)
+        if position > 0 and b.button('← Previous', help=pool[position-1]['name'], width='stretch'):
+            go('pokemon', pool[position-1]['id'])
+        if position < len(pool)-1 and c.button('Next →', help=pool[position+1]['name'], width='stretch'):
+            go('pokemon', pool[position+1]['id'])
+        picture,info,stats=st.columns([1.05,1.25,1.6],gap='large')
         with picture:
             st.image(sprite(p),width=160)
         with info:
             st.caption(f"NATIONAL #{p['num']:03d} · REGULATION M-C")
             st.title(p['name']); badges(p['types'])
+            st.markdown('**Abilities in Champions**')
             for name in dict.fromkeys(p['abilities'].values()):
                 a=abilities[name]
-                st.markdown(f"[{name}]({link('ability',a['id'])})")
+                if st.button(name,key='mc_pokemon_ability_'+a['id']): go('ability',a['id'])
+            with st.expander('Ability effects'):
+                for name in dict.fromkeys(p['abilities'].values()):
+                    st.markdown(f'**{name}**')
+                    st.caption(abilities[name]['desc'])
+            if st.button('Compare this Pokémon'):
+                st.session_state['mc_compare']=[identifier]; go('compare')
             if p['battleOnly']:
                 st.caption('Battle transformation: '+str(p['battleOnly']))
             if p['requiredItems']:
@@ -177,14 +189,14 @@ def _render_page(view,tables):
             markup=''.join(f'<div class="stat"><span>{label}</span><strong>{p["baseStats"][stat]}</strong><div class="track"><div class="fill" style="width:{p["baseStats"][stat]/255*100}%"></div></div></div>' for stat,label in STATS.items())
             st.markdown(markup,unsafe_allow_html=True)
             st.markdown(f'**Base stat total · {sum(p["baseStats"].values())}**')
-        learn,defense,family=st.tabs(['Moves','Type defenses','Other forms'])
+        defense,learn,family=st.tabs(['Type defenses','Moves learned','Other forms'])
         with learn:
             query=st.text_input('Find a move',key='mc_learn_query')
             ids={r['move_id'] for r in tables['learnsets'] if r['pokemon_id']==identifier}
             entries=sorted([moves[mid] for mid in ids if mid in moves and query.casefold() in moves[mid]['name'].casefold()],key=lambda m:m['name'])
             st.caption(f'{len(entries)} moves · Individual source options, not complete moveset validation.')
             move_table(entries,'mc_learnset')
-        with defense: defense_table([p],tables['types'])
+        with defense: defense_cards(defenses(p,tables['types']))
         with family:
             pokemon_table([other for other in pool if other['baseSpecies']==p['baseSpecies']],'mc_forms')
     elif view=='compare':

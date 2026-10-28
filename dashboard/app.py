@@ -10,6 +10,7 @@ import streamlit as st
 
 from data_access import COLORS, ROOT, STATS, enriched, learning_routes, load_live, load_saved, pretty, search_routes
 from icons import icon_uri, svg
+from defense_ui import defense_cards
 
 st.set_page_config(page_title='Champions reference' if st.query_params.get('page') == 'champions' else 'Emerald Pokédex', page_icon='🌿', layout='wide', initial_sidebar_state='expanded')
 st.markdown('''<style>
@@ -322,35 +323,8 @@ elif page == 'pokemon':
         st.markdown(f'**Base stat total · {int(row.bst)}**')
     details, learnset, evolution = st.tabs(['Type defenses', 'Moves learned', 'Evolution family'])
     with details:
-        st.subheader('Type defenses')
-        st.caption('Incoming attack multipliers. Abilities and battle conditions are not applied.')
         defenses = data['pokemon_defensive_matchups'].query('pokemon_id == @pid and attacking_type_id <= 17')
-        def defense_group(label, explanation, subset, accent, background):
-            st.markdown(f'**{label}** · {explanation}')
-            if subset.empty:
-                st.caption('None')
-                return
-            cards = []
-            for defense in subset.itertuples():
-                type_name = type_names[defense.attacking_type_id]
-                multiplier = {0.5: '½×', 0.25: '¼×'}.get(float(defense.modifier), f'{float(defense.modifier):g}×')
-                cards.append(
-                    f'<div style="display:flex;align-items:center;gap:12px;padding:7px 10px;'
-                    f'border:1px solid {accent};border-radius:8px;background:{background}">'
-                    f'<span class="type-pill" style="background:{COLORS[type_name]};margin:0;min-width:72px;text-align:center">{escape(pretty(type_name))}</span>'
-                    f'<strong style="color:{accent};font-size:20px;min-width:42px;text-align:right">{multiplier}</strong></div>')
-            st.markdown('<div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px">' + ''.join(cards) + '</div>', unsafe_allow_html=True)
-
-        defense_group('Weaknesses', 'takes more damage',
-                      defenses[defenses.modifier > 1].sort_values('modifier', ascending=False), '#a23d30', '#fff4ef')
-        defense_group('Resistances', 'takes less damage',
-                      defenses[(defenses.modifier > 0) & (defenses.modifier < 1)].sort_values('modifier'), '#27694c', '#edf7ef')
-        defense_group('Immunities', 'takes no damage',
-                      defenses[defenses.modifier == 0], '#585a83', '#f2f0fa')
-        neutral = defenses[defenses.modifier == 1]
-        with st.expander(f'Neutral damage · {len(neutral)} types · 1×'):
-            defense_group('Neutral', 'takes normal damage', neutral, '#58685d', '#f4f6f2')
-        st.caption('4× = quadruple damage · 2× = double · ½× = half · ¼× = quarter · 0× = no damage')
+        defense_cards({type_names[r.attacking_type_id]: r.modifier for r in defenses.itertuples()})
         if pid == 292:
             st.info('Shedinja has Wonder Guard. The values above show its types only, not Wonder Guard’s protection.')
     with learnset:
