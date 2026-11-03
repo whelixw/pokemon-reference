@@ -6,12 +6,12 @@
   function navigate(raw) {
     const url = new URL(raw, window.location.href);
     if (!['http:', 'https:'].includes(url.protocol)) return false;
-    if (url.origin === window.location.origin && url.pathname.startsWith('/~/+/')) {
-      url.pathname = '/' + url.pathname.slice('/~/+/'.length);
+    if (url.origin === window.location.origin && window.location.pathname.startsWith('/~/+/')) {
+      // Stay inside Community Cloud's app frame; its sandbox blocks top-frame
+      // navigation from canvas links. Keep the app endpoint, query and hash.
+      if (!url.pathname.startsWith('/~/+/')) url.pathname = '/~/+/' + url.pathname.replace(/^\//, '');
     }
-    // Community Cloud embeds the app. Navigate the outer page, avoiding a
-    // second copy of its wrapper inside the app iframe.
-    window.top.location.href = url.href;
+    window.location.assign(url.href);
     return true;
   }
   window.open = function(url, target, features) {
