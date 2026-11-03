@@ -10,6 +10,7 @@ import pandas as pd
 import streamlit as st
 from icons import icon_uri, svg
 from defense_ui import defense_cards, multiplier_label
+from navigation import ability_box
 
 STATS = {'hp':'HP', 'atk':'Attack', 'def':'Defense', 'spa':'Sp. Atk', 'spd':'Sp. Def', 'spe':'Speed'}
 
@@ -183,13 +184,9 @@ def _render_page(view,tables):
         with st.container(horizontal=True):
             for name in dict.fromkeys(p['abilities'].values()):
                 ability=abilities[name]
-                if st.button(name,key='mc_pokemon_ability_'+ability['id']): go('ability',ability['id'])
+                ability_box(name, ability['desc'], lambda aid=ability['id']: go('ability',aid), 'mc_pokemon_ability_'+ability['id'])
             if st.button('Compare this Pokémon'):
                 st.session_state['mc_compare']=[identifier]; go('compare')
-        with st.expander('Ability effects'):
-            for name in dict.fromkeys(p['abilities'].values()):
-                st.markdown(f'**{name}**')
-                st.write(abilities[name]['desc'])
         defense,learn,family=st.tabs(['Type defenses','Moves learned','Other forms'])
         with learn:
             query=st.text_input('Find a move',key='mc_learn_query')
@@ -210,7 +207,9 @@ def _render_page(view,tables):
                 st.image(sprite(p),width=96)
                 st.markdown(f"**[{p['name']}]({link('pokemon',p['id'])})**")
                 badges(p['types'])
-                st.caption(' / '.join(dict.fromkeys(p['abilities'].values())))
+                for name in dict.fromkeys(p['abilities'].values()):
+                    ability=abilities[name]
+                    ability_box(name, ability['desc'], lambda aid=ability['id']: go('ability',aid), 'mc_compare_ability_'+p['id']+'_'+ability['id'])
         base,defense=st.tabs(['Base stats','Type defenses'])
         with base:
             st.dataframe(pd.DataFrame({p['name']:[*(p['baseStats'][stat] for stat in STATS),sum(p['baseStats'].values())] for p in chosen},index=[*STATS.values(),'BST']),width='stretch')

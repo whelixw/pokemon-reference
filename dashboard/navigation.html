@@ -1,0 +1,34 @@
+<script>
+(() => {
+  if (window.__pokemonNavigationInstalled) return;
+  window.__pokemonNavigationInstalled = true;
+  const originalOpen = window.open.bind(window);
+  function navigate(raw) {
+    const url = new URL(raw, window.location.href);
+    if (!['http:', 'https:'].includes(url.protocol)) return false;
+    if (url.origin === window.location.origin && url.pathname.startsWith('/~/+/')) {
+      url.pathname = '/' + url.pathname.slice('/~/+/'.length);
+    }
+    // Community Cloud embeds the app. Navigate the outer page, avoiding a
+    // second copy of its wrapper inside the app iframe.
+    window.top.location.href = url.href;
+    return true;
+  }
+  window.open = function(url, target, features) {
+    if (url && navigate(url)) return null;
+    return originalOpen(url, target, features);
+  };
+  document.addEventListener('click', event => {
+    const anchor = event.target.closest?.('a[href]');
+    if (!anchor || anchor.hasAttribute('download') || event.button !== 0 ||
+        event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const raw = anchor.getAttribute('href');
+    if (!raw || raw.startsWith('#')) return;
+    const url = new URL(raw, window.location.href);
+    if (!['http:', 'https:'].includes(url.protocol)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    navigate(url.href);
+  }, true);
+})();
+</script>

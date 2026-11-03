@@ -11,8 +11,10 @@ import streamlit as st
 from data_access import COLORS, ROOT, STATS, enriched, learning_routes, load_live, load_saved, pretty, search_routes
 from icons import icon_uri, svg
 from defense_ui import defense_cards
+from navigation import install_navigation, ability_box
 
 st.set_page_config(page_title='Champions reference' if st.query_params.get('page') == 'champions' else 'Emerald Pokédex', page_icon='🌿', layout='wide', initial_sidebar_state='expanded')
+install_navigation()
 st.markdown('''<style>
 .block-container {max-width:1240px;padding-top:3.75rem;padding-bottom:2rem;}
 h1,h2,h3 {letter-spacing:-.035em;color:#214f3c;}
@@ -310,9 +312,8 @@ elif page == 'pokemon':
         st.markdown('**Abilities in Emerald**')
         assignments = data['pokemon_abilities'].query('pokemon_id == @pid').merge(data['abilities'], on='ability_id').sort_values('slot')
         for ability in assignments.itertuples():
-            if st.button(pretty(ability.name), key=f'ability_{ability.ability_id}'):
-                go('ability', ability.ability_id)
-            st.caption(ability.description)
+            ability_box(pretty(ability.name), ability.description,
+                        lambda aid=ability.ability_id: go('ability', aid), f'ability_{ability.ability_id}')
         if st.button('Compare this Pokémon'):
             st.session_state['compare_ids'] = [pid]
             go('compare')
@@ -536,7 +537,8 @@ elif page == 'compare':
                 badges(row.types)
                 assigned = data['pokemon_abilities'].query('pokemon_id == @pid').merge(data['abilities'], on='ability_id').sort_values('slot')
                 for ability in assigned.itertuples():
-                    st.markdown(f'[{pretty(ability.name)}](?page=ability&id={ability.ability_id}&filters={quote(browse_context(), safe="")})', help=ability.description)
+                    ability_box(pretty(ability.name), ability.description,
+                                lambda aid=ability.ability_id: go('ability', aid), f'compare_ability_{pid}_{ability.ability_id}')
 
         stats_tab, defenses_tab = st.tabs(['Base stats', 'Type defenses'])
         with stats_tab:
