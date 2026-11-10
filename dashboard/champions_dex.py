@@ -59,7 +59,7 @@ def symbols(frame, category=False):
     return config
 
 
-def pokemon_table(species, key):
+def pokemon_table(species, key, *, native_links=False):
     if not species:
         st.info('No matches. Try broadening your filters.')
         return
@@ -69,6 +69,61 @@ def pokemon_table(species, key):
                      'Type 1':p['types'][0], 'Type 2':p['types'][1] if len(p['types'])>1 else None,
                      **{label:p['baseStats'][stat] for stat,label in STATS.items()}, 'BST':sum(p['baseStats'].values())})
     frame=pd.DataFrame(rows)
+    if native_links:
+        # A canvas LinkColumn does not expose a browser anchor for middle-click.
+        show_labels = st.session_state.get('mc_labels', False)
+        headers = ''.join(
+            f'<th scope="col">{escape(column)}</th>' if column != 'Sprite'
+            else '<th scope="col" aria-label="Sprite"></th>'
+            for column in frame.columns
+        )
+        body = []
+        for p, row in zip(species, rows):
+            cells = [f'{row["No."]:03d}', f'<img src="{escape(row["Sprite"])}" alt="" width="32">',
+                     f'<a href="{escape(row["Pokémon"])}">{escape(p["name"])}</a>']
+            for column in ('Type 1', 'Type 2'):
+                kind = row[column]
+                if kind and not show_labels:
+                    cells.append(f'<img src="{icon_uri("type", kind.lower())}" alt="{escape(kind)}" width="26" height="26">')
+                else:
+                    cells.append(escape(kind) if kind else '—')
+            cells.extend(str(row[column]) for column in [*STATS.values(), 'BST'])
+            body.append('<tr>' + ''.join(f'<td>{cell}</td>' for cell in cells) + '</tr>')
+        st.html(f"""
+            <style>
+                .mc-learner-table {{
+                    max-height: 480px; overflow: auto; border-radius: 8px;
+                    border: 1px solid var(--st-border-color, #dce2dc);
+                }}
+                .mc-learner-table table {{
+                    width: 100%; margin: 0; border-collapse: separate; border-spacing: 0;
+                    font-size: .875rem; font-variant-numeric: tabular-nums;
+                }}
+                .mc-learner-table td, .mc-learner-table th {{
+                    white-space: nowrap; padding: 3px 8px; height: 34px;
+                    border: 0; border-inline-end: 1px solid var(--st-border-color, #dce2dc);
+                    border-bottom: 1px solid var(--st-border-color, #dce2dc);
+                }}
+                .mc-learner-table th {{
+                    position: sticky; top: 0; text-align: left; font-weight: 400;
+                    background: var(--st-secondary-background-color, #eef2ed);
+                }}
+                .mc-learner-table tr > :last-child {{ border-inline-end: 0; }}
+                .mc-learner-table tbody tr:last-child td {{ border-bottom: 0; }}
+                .mc-learner-table td {{ text-align: right; }}
+                .mc-learner-table td:nth-child(3) {{ text-align: left; }}
+                .mc-learner-table td:nth-child(2),
+                .mc-learner-table td:nth-child(4),
+                .mc-learner-table td:nth-child(5) {{ text-align: center; }}
+                .mc-learner-table img {{ vertical-align: middle; }}
+                .mc-learner-table a {{ color: var(--st-link-color, #3659a2); text-decoration: none; }}
+                .mc-learner-table a:hover {{ text-decoration: underline; }}
+            </style>
+            <div class="mc-learner-table"><table>
+                <thead><tr>{headers}</tr></thead><tbody>{''.join(body)}</tbody>
+            </table></div>
+        """)
+        return
     config=symbols(frame)
     config.update({'Sprite':st.column_config.ImageColumn('',width=50),
                    'Pokémon':st.column_config.LinkColumn(display_text=r'#(.*)$'),

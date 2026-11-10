@@ -74,12 +74,14 @@ def render():
         query = a.text_input('Search Champions moves', placeholder='Name or effect', key='champ_query')
         move_type = b.selectbox('Move type', ['Any', *sorted({m['type'] for m in tables['moves']})], key='champ_type')
         category = c.selectbox('Category', ['Any', 'Physical', 'Special', 'Status'], key='champ_category')
+        requested = st.query_params.get('id')
+        requested_move = next((move for move in tables['moves'] if move['id'] == requested), None)
         with st.expander('Competitive filters'):
             features = st.multiselect('Required move features', list(FEATURES), key='champ_features')
             a, b, c = st.columns(3)
             priority = a.checkbox('Positive priority only', key='champ_priority')
             spread = b.checkbox('Spread attacks only', key='champ_spread')
-            available = c.checkbox('Available in source only', value=True, key='champ_available')
+            available = c.checkbox('Available in source only', value=requested_move is None or requested_move['available'], key='champ_available')
         results = sorted(filter_moves(tables['moves'], query, available, move_type, category, features, priority, spread), key=lambda m: m['name'])
         st.caption(f'{len(results)} moves · Base flags can have ability, item or field exceptions.')
         if not results:
@@ -92,14 +94,20 @@ def render():
             frame = pd.DataFrame(rows)
             config = symbols(frame)
             config['Acc.'] = st.column_config.NumberColumn(format='%d%%')
-            st.dataframe(frame, hide_index=True, width='stretch', height=min(400, 35*(len(rows)+1)+4),
-                         placeholder='—', column_config=config)
+            move_ids = [move['id'] for move in results]
+            table_key = hashlib.sha256(','.join(move_ids).encode()).hexdigest()
+            default_row = move_ids.index(requested) if requested in move_ids else 0
+            selection = st.dataframe(
+                frame, hide_index=True, width='stretch', height=min(400, 35*(len(rows)+1)+4),
+                placeholder='—', column_config=config, key=f'champ_moves_{table_key}',
+                on_select='rerun', selection_mode='single-cell',
+                selection_default={'selection': {'cells': [(default_row, 'Move')]}},
+            ).selection
             st.caption('— accuracy: no normal accuracy check. — power: status move or damage determined by an effect.')
-            by_id = {m['id']: m for m in results}
-            requested = st.query_params.get('id')
-            options = list(by_id)
-            selected = st.selectbox('Inspect move', options, index=options.index(requested) if requested in options else 0, format_func=lambda mid: by_id[mid]['name'], key='champ_detail')
-            move = by_id[selected]
+            move = results[selection.cells[0][0] if selection.cells else default_row]
+            selected = move['id']
+            if selected != requested:
+                st.query_params['id'] = selected
             st.subheader(move['name'])
             st.write('Restores ½ of the user’s or an adjacent ally’s maximum HP.' if selected == 'milkdrink' else (move['desc'] or 'No source description available.'))
             st.caption('Source description; conditional effects and inherited wording may require further verification.')
@@ -108,6 +116,14 @@ def render():
             a, b = st.columns(2)
             a.write('**Target:** ' + TARGETS.get(move['target'], move['target']))
             b.write('**Features:** ' + (', '.join(label for label, flag in FEATURES.items() if move['flags'].get(flag)) or 'None of the listed flags'))
+            with st.expander('Pokémon with this move in the source', expanded=True):
+                ids = {row['pokemon_id'] for row in tables['learnsets'] if row['move_id'] == selected}
+                learners = [p for p in tables['species'] if p['id'] in ids and p['mc_species_allowed']]
+                if learners:
+                    pokemon_table(learners, 'mc_move_learners', native_links=True)
+                else:
+                    st.caption('No source-available learners in this snapshot.')
+                st.caption('Includes battle forms. Individual learning options do not establish a legal complete set or team.')
             with st.expander('Effect details and source'):
                 st.write('Original source description: ' + (move['desc'] or 'Unavailable'))
                 effect_fields = ['heal','drain','recoil','multihit','status','volatileStatus','sideCondition',
@@ -116,14 +132,6 @@ def render():
                 st.json({key:move[key] for key in effect_fields if move.get(key)})
                 st.caption('Fractions are numerator/denominator pairs. Scripted effects need simulator context; they are not missing or zero effects.')
                 st.link_button('Open pinned Champions overrides', f"{manifest['source']}/blob/{manifest['revision']}/data/mods/champions/moves.ts")
-            with st.expander('Pokémon with this move in the source'):
-                ids = {row['pokemon_id'] for row in tables['learnsets'] if row['move_id'] == selected}
-                learners = [p for p in tables['species'] if p['id'] in ids and p['mc_species_allowed']]
-                if learners:
-                    pokemon_table(learners, 'mc_move_learners')
-                else:
-                    st.caption('No source-available learners in this snapshot.')
-                st.caption('Includes battle forms. Individual learning options do not establish a legal complete set or team.')
             st.download_button('Download filtered move data', json.dumps(results, indent=2), 'champions-moves.json', 'application/json')
     with mechanics_tab:
         st.subheader('Champions-specific checks')
